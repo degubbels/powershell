@@ -52,7 +52,7 @@ function prompt {
     
     $gitprompt = "["
 
-    if (-not ($status.Branch -eq "master")) {
+    if (-not ($status.Branch -eq "master") -or (-not($status.Branch -eq "main")) ) {
       $remotebehind = git rev-list --left-only --count master...@
       $remoteahead = git rev-list --right-only --count master...@
       $gitprompt += $remotebehind + "|" + $remoteahead + " - "
